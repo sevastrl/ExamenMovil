@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Perros y libros
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <div *ngIf="dogImages.length === 0 || bookTitles.length === 0">
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+
+   
+  <ion-card *ngFor="let dogImage of dogImages; let i = index">
+    <img alt="Image" [src]="dogImage" />
+    <ion-card-header>
+      <ion-card-title>{{ bookTitles[i] || 'Cargando título...' }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+</ion-content>
